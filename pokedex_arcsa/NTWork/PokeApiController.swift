@@ -10,6 +10,8 @@ import Foundation
 
 class PokeApiController{
     
+    var favoritePokemon: [Pokemon] = []
+    
     //declaramos la URL base para buscar los pokemon por nombre
     let baseUrl = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     
@@ -64,5 +66,8 @@ class PokeApiController{
         
     }
     
+    func addFavoritePokemon(pokemon: Pokemon)  {
+        favoritePokemon.append(pokemon)
+    }
     
 }

@@ -9,38 +9,38 @@
 import UIKit
 
 class DisplayPokemonTableViewController: UITableViewController {
+    
+    let pokemonController = PokeApiController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.reloadData()
+    }
+ //Refrescamos la tabla para ver los favoritos cada vez que se añaden
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+           tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+       
+        return pokemonController.favoritePokemon.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pokeCell", for: indexPath)
+        
+        let pokemon = pokemonController.favoritePokemon[indexPath.row]
+        cell.textLabel?.text = pokemon.name.capitalized
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,14 +77,16 @@ class DisplayPokemonTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+   //Vamos a pasar los datos del pokemon por el segue de un VC a otro
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "searchPokemon" {
+            guard let searchVC = segue.destination as? BusquedaPokemonViewController else{ return }
+            searchVC.pokemonController = pokemonController
+        }
     }
-    */
+    
 
 }

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Display Pokemon Table View Controller-->
+        <!--Favoritos-->
         <scene sceneID="OLB-gf-cTs">
             <objects>
                 <tableViewController id="YpT-D1-Qrl" customClass="DisplayPokemonTableViewController" customModule="pokedex_arcsa" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="YpT-D1-Qrl" id="UhJ-yP-mLr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="P2g-kS-7fy">
+                    <navigationItem key="navigationItem" title="Favoritos" id="P2g-kS-7fy">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="L0x-CV-tY2">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -61,6 +61,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.75806927584395456" green="0.98781219502011197" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEL-rj-I4O">
+                                <rect key="frame" x="91" y="793" width="233" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="  Guardar" image="icloud.circle.fill" catalog="system">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="KNL-cc-K33" eventType="touchUpInside" id="DXl-CN-Xej"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -69,6 +81,7 @@
                     <navigationItem key="navigationItem" title="Busca un Pokemon" id="Xx0-Z8-q5R"/>
                     <connections>
                         <outlet property="imageView" destination="aNn-NF-Xx9" id="iNJ-Fj-gKa"/>
+                        <outlet property="saveButtonOutlet" destination="MEL-rj-I4O" id="k9p-BD-0tk"/>
                         <outlet property="searchBar" destination="e5m-Up-LHt" id="DNi-9I-7Wd"/>
                     </connections>
                 </viewController>
@@ -99,5 +112,8 @@
             <point key="canvasLocation" x="176.81159420289856" y="98.4375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icloud.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
     <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
 </document>
