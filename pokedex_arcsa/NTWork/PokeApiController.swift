@@ -49,9 +49,9 @@ class PokeApiController{
                 let pokemon = try decoder.decode(Pokemon.self, from: data)
                 //Con el print vemos la data que nos llega
                     
-               if let pureJson = try? JSONSerialization.jsonObject(with: data, options:[]){
-                    print(pureJson)
-                }
+//               if let pureJson = try? JSONSerialization.jsonObject(with: data, options:[]){
+//                    print(pureJson)
+//                }
                 print(pokemon)
                 //Salimos del do por el completion con el metodo success
                 completion(.success(pokemon))

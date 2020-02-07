@@ -12,8 +12,16 @@ class BusquedaPokemonViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var saveButtonOutlet: UIButton!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var defenseLabel: UILabel!
+    @IBOutlet weak var hpLabel: UILabel!
+    @IBOutlet weak var atackLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
     
-//Para evitar crear muchas instancias declararemos una variable del tipo de nuestra clase 
+    
+    
+    //Para evitar crear muchas instancias declararemos una variable del tipo de nuestra clase
     var pokemonController: PokeApiController?
     var pokemon: Pokemon? {
         didSet{
@@ -57,6 +65,15 @@ class BusquedaPokemonViewController: UIViewController, UISearchBarDelegate {
         guard let pokemonImageData = try? Data(contentsOf: pokemon.sprites.frontDefault )else{
             return
         }
+    //Añadimos Stats y caracteristicas
+        idLabel.text = "id: \(pokemon.id)"
+        weightLabel.text = "weight: \(pokemon.weight)"
+        heightLabel.text =  "height: \(pokemon.height)"
+        defenseLabel.text = "defense: \(pokemon.stats[1].baseStat)"
+        hpLabel.text = "Hp: \(pokemon.stats[5].baseStat)"
+        atackLabel.text = "atack: \(pokemon.stats[4].baseStat)"
+        
+        
     //Añadimos la imagen a la vista
         //Lo hacemos directo del Data para evitar posibles problemas de rendimiento
         imageView.image = UIImage(data: pokemonImageData)

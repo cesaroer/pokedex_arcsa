@@ -18,6 +18,7 @@
 		DB120E6123ECF1B4003B1BA9 /* BusquedaPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB120E6023ECF1B4003B1BA9 /* BusquedaPokemonViewController.swift */; };
 		DB120E6423ECF291003B1BA9 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB120E6323ECF291003B1BA9 /* Pokemon.swift */; };
 		DB120E6723ECF527003B1BA9 /* PokeApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB120E6623ECF527003B1BA9 /* PokeApiController.swift */; };
+		DB6AD76D23ED401F00520526 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6AD76C23ED401F00520526 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		DB120E6023ECF1B4003B1BA9 /* BusquedaPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusquedaPokemonViewController.swift; sourceTree = "<group>"; };
 		DB120E6323ECF291003B1BA9 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		DB120E6623ECF527003B1BA9 /* PokeApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApiController.swift; sourceTree = "<group>"; };
+		DB6AD76C23ED401F00520526 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				DB120E5E23ECF168003B1BA9 /* DisplayPokemonTableViewController.swift */,
 				DB120E6023ECF1B4003B1BA9 /* BusquedaPokemonViewController.swift */,
+				DB6AD76C23ED401F00520526 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				DB120E5F23ECF168003B1BA9 /* DisplayPokemonTableViewController.swift in Sources */,
 				DB120E2F23ECEA0D003B1BA9 /* AppDelegate.swift in Sources */,
 				DB120E3123ECEA0D003B1BA9 /* SceneDelegate.swift in Sources */,
+				DB6AD76D23ED401F00520526 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
