@@ -107,7 +107,7 @@
 			children = (
 				DB120E2E23ECEA0D003B1BA9 /* AppDelegate.swift */,
 				DB120E3023ECEA0D003B1BA9 /* SceneDelegate.swift */,
-				DB120E6623ECF527003B1BA9 /* PokeApiController.swift */,
+				DB120E6923ED0F03003B1BA9 /* NTWork */,
 				DB120E6523ECF33B003B1BA9 /* Models */,
 				DB120E6223ECF244003B1BA9 /* ViewControllers */,
 				DB120E3423ECEA0D003B1BA9 /* Main.storyboard */,
@@ -151,6 +151,14 @@
 				DB120E6323ECF291003B1BA9 /* Pokemon.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DB120E6923ED0F03003B1BA9 /* NTWork */ = {
+			isa = PBXGroup;
+			children = (
+				DB120E6623ECF527003B1BA9 /* PokeApiController.swift */,
+			);
+			path = NTWork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

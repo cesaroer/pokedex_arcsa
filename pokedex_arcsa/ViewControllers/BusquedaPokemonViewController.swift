@@ -8,12 +8,45 @@
 
 import UIKit
 
-class BusquedaPokemonViewController: UIViewController {
-
+class BusquedaPokemonViewController: UIViewController, UISearchBarDelegate {
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let pokemonController = PokeApiController()
+    var pokemon: Pokemon? {
+        didSet{
+            updateView()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        searchBar.delegate = self
+        
+    }
+    
+    //Obtendremos el texto de la barra de busqueda
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        guard let pokemonNameSB = searchBar.text else { return  }
+        
+    //Pasamos los datos del SearchBar a la funcion para hacer la peticion
+    pokemonController.getPokemonData(pokemonName: pokemonNameSB) { (obtainedPokemon) in
+        guard let obtainedPokemon = try? obtainedPokemon.get() else{ return}
+        //Proceso de hilo principal
+        DispatchQueue.main.async {
+            self.pokemon = obtainedPokemon
+        }
+        }
+        
+        
+    }
+    
+    func updateView(){
+    //Verificamos si la vista ha sido cargada
+        guard isViewLoaded else { return}
+    //Actualizamos el titulo de la vista
+        guard let pokemon = pokemon else { return  }
+        title = pokemon.name.uppercased() + " ID : " + "\(pokemon.id)"
     }
     
 

@@ -60,6 +60,9 @@
                         <viewLayoutGuide key="safeArea" id="bQv-BJ-5OW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Busca un Pokemon" id="Xx0-Z8-q5R"/>
+                    <connections>
+                        <outlet property="searchBar" destination="e5m-Up-LHt" id="DNi-9I-7Wd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQw-lw-zxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

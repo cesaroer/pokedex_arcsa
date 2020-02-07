@@ -18,7 +18,8 @@ class PokeApiController{
     func getPokemonData(pokemonName: String ,completion: @escaping (Result<Pokemon ,Error>) -> Void){
         
     //variable creada para concatenar la url base y el nombre de la busqueda
-        let requestUrl = baseUrl.appendingPathComponent(pokemonName)
+        //El nombre de la busqueda debe pasarse en minusculas asi que añadimos .lowercased()
+        let requestUrl = baseUrl.appendingPathComponent(pokemonName.lowercased())
         
     //creamos el URLsession con shared par ainstanciarlo
         URLSession.shared.dataTask(with: requestUrl) { (jsonData, response, error) in
@@ -37,10 +38,16 @@ class PokeApiController{
             }
             
     //Decodificamos el Json con referencia a nuestra Struct Pokemon
+// MARK: JSON DECODE AND PRINTED
+            
             do {
                 let pokemon = try JSONDecoder().decode(Pokemon.self, from: data)
                 //Con el print vemos la data que nos llega
-                    print(pokemon)
+                    
+               if let pureJson = try? JSONSerialization.jsonObject(with: data, options:[]){
+                    print(pureJson)
+                }
+                print(pokemon)
                 //Salimos del do por el completion con el metodo success
                 completion(.success(pokemon))
             } catch{
