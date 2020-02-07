@@ -10,6 +10,8 @@ import UIKit
 
 class BusquedaPokemonViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     let pokemonController = PokeApiController()
     var pokemon: Pokemon? {
@@ -47,6 +49,15 @@ class BusquedaPokemonViewController: UIViewController, UISearchBarDelegate {
     //Actualizamos el titulo de la vista
         guard let pokemon = pokemon else { return  }
         title = pokemon.name.uppercased() + " ID : " + "\(pokemon.id)"
+        
+    //Guardamos el data de la url de la imagen en una variable
+        guard let pokemonImageData = try? Data(contentsOf: pokemon.sprites.frontDefault )else{
+            return
+        }
+    //Añadimos la imagen a la vista
+        //Lo hacemos directo del Data para evitar posibles problemas de rendimiento
+        imageView.image = UIImage(data: pokemonImageData)
+    
     }
     
 

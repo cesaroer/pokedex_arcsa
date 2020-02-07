@@ -41,7 +41,10 @@ class PokeApiController{
 // MARK: JSON DECODE AND PRINTED
             
             do {
-                let pokemon = try JSONDecoder().decode(Pokemon.self, from: data)
+                let decoder = JSONDecoder()
+                //Convertimos a Snake case las variables de la estructura
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let pokemon = try decoder.decode(Pokemon.self, from: data)
                 //Con el print vemos la data que nos llega
                     
                if let pureJson = try? JSONSerialization.jsonObject(with: data, options:[]){
