@@ -10,25 +10,39 @@ import XCTest
 @testable import pokedex_arcsa
 
 class pokedex_arcsaTests: XCTestCase {
+    
+    //Se probará que la funcion getPokemonData no falle en la ejecucion  y que nos regrese el pokemon correcto al comparar los nombres de pokemonTestName y pokemon?.name.
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var pokemonController: PokeApiController?
+    let pokemonTestName = "pikachu"
+    var pokemon: Pokemon?
+    var validVar: Bool?
+    
+ func validation(){
+        
+    XCTAssertTrue(testValidRequest())
+        
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+ func testValidRequest() -> Bool {
+        
+        pokemonController?.getPokemonData(pokemonName: pokemonTestName , completion: { (pokemon) in
+             guard let _ = try? pokemon.get() else{ return}
+            
+        })
+        
+        if pokemon?.name == pokemonTestName {
+            validVar = true
+            return true}
+        else{
+            validVar = false
+            return false }
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
+    
+    
+    
+    
+    
 
 }
