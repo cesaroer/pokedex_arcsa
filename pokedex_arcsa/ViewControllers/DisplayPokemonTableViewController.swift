@@ -36,6 +36,11 @@ class DisplayPokemonTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokeCell", for: indexPath)
         
         let pokemon = pokemonController.favoritePokemon[indexPath.row]
+        guard let pokemonImageData = try? Data(contentsOf: pokemon.sprites.frontDefault )else{
+                   fatalError()
+               }
+        //Pasamos el nombre y la imagen a la celda
+        cell.imageView?.image = UIImage(data: pokemonImageData)
         cell.textLabel?.text = pokemon.name.capitalized
         
         return cell
